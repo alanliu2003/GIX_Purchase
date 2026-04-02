@@ -11,6 +11,8 @@ st.caption(
     "the budget is deducted only when status becomes Arrived."
 )
 
+st.header("Purchase information")
+
 with st.form("purchase"):
     team_number = st.number_input("Team number", min_value=1, step=1, value=1)
     cfo_name = st.text_input("CFO name")

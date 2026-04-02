@@ -13,6 +13,7 @@ if st.button("Refresh"):
 
 teams = service.list_teams()
 if teams:
+    st.header("Team budgets")
     cols = st.columns(min(len(teams), 6))
     for i, t in enumerate(teams):
         with cols[i % len(cols)]:
@@ -20,8 +21,10 @@ if teams:
 
 purchases = service.list_purchases()
 if not purchases:
+    st.header("Purchases")
     st.info("No purchases yet.")
 else:
+    st.header("Purchases")
     status_labels = {
         "under_process": "Under process",
         "arrived": "Arrived",
