@@ -151,30 +151,6 @@ This project does **not** ship with logins. Anyone who can open the URL can use 
 
 ---
 
-## Publish to GitHub (public repo)
-
-`.env` and other secrets are listed in **`.gitignore`** so they are not committed. Only **`.env.example`** (no real passwords) is tracked.
-
-1. On [github.com/new](https://github.com/new), create a repository:
-   - Choose **Public**
-   - Do **not** add a README, `.gitignore`, or license (this project already has them).
-
-2. In the project folder, connect and push (replace `YOUR_USER` and `YOUR_REPO`):
-
-   ```bash
-   git remote add origin https://github.com/YOUR_USER/YOUR_REPO.git
-   git push -u origin main
-   ```
-
-   Use SSH instead if you prefer: `git@github.com:YOUR_USER/YOUR_REPO.git`
-
-3. **Optional — GitHub CLI** (if installed):  
-   `gh repo create YOUR_REPO --public --source=. --remote=origin --push`
-
-After cloning elsewhere, copy `.env.example` → `.env` and fill in real credentials (never commit `.env`).
-
----
-
 ## License / course use
 
 Use and modify as needed for your course or team. If you deploy publicly, read **[DOCKER.md](DOCKER.md)** for HTTPS and firewall tips.
