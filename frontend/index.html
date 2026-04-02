@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GIX Team Purchases</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="top">
+    <h1>GIX team purchase tracker</h1>
+    <nav class="tabs" role="tablist">
+      <button type="button" class="tab active" data-view="student" aria-selected="true">Student</button>
+      <button type="button" class="tab" data-view="coordinator">Coordinator</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="view-student" class="panel">
+      <h2>Submit a purchase</h2>
+      <p class="hint">New purchases start as <strong>Under process</strong>. The coordinator marks <strong>Arrived</strong> when appropriate; the budget is deducted only then.</p>
+      <form id="form-purchase" class="form-grid">
+        <label>Team number <input name="team_number" type="number" min="1" required /></label>
+        <label>CFO name <input name="cfo_name" type="text" required /></label>
+        <label>Purchase link <input name="purchase_link" type="url" required placeholder="https://..." /></label>
+        <label>Price per item ($) <input name="price_per_item" type="number" min="0" step="0.01" required /></label>
+        <label>Quantity <input name="quantity" type="number" min="1" step="1" value="1" required /></label>
+        <label class="full">Notes <textarea name="notes" rows="2"></textarea></label>
+        <label class="check"><input name="instructor_approved" type="checkbox" /> Instructor approved</label>
+        <div class="full actions">
+          <button type="submit">Submit purchase</button>
+        </div>
+      </form>
+      <p id="student-msg" class="msg" role="status"></p>
+    </section>
+
+    <section id="view-coordinator" class="panel hidden">
+      <h2>Coordinator dashboard</h2>
+      <p class="hint">Set status: <strong>Under process</strong>, <strong>Arrived</strong> (deducts budget when first marked), or <strong>Problematic</strong> (follow up with CFO).</p>
+      <div class="toolbar">
+        <button type="button" id="btn-refresh">Refresh data</button>
+      </div>
+      <div class="budgets" id="budgets"></div>
+      <div class="table-wrap">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Team</th>
+              <th>CFO</th>
+              <th>Link</th>
+              <th>$ / item</th>
+              <th>Qty</th>
+              <th>Line total</th>
+              <th>Notes</th>
+              <th>Instr. OK</th>
+              <th>Status</th>
+              <th>Budget left</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-purchases"></tbody>
+        </table>
+      </div>
+      <p id="coord-msg" class="msg" role="status"></p>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

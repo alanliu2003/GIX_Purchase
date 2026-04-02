@@ -1,0 +1,5 @@
+# Listen on all interfaces so other devices on your LAN can open the app.
+# Use only on trusted networks (no login in this app yet).
+[server]
+address = "0.0.0.0"
+port = 8501

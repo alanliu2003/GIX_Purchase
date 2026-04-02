@@ -1,0 +1,21 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Secrets and local env (never commit real credentials)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.streamlit/secrets.toml
+docker-compose.override.yml
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
