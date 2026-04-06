@@ -20,11 +20,10 @@ if teams:
             st.metric(f"Team {t['team_number']}", f"${t['budget_remaining']:.2f}")
 
 purchases = service.list_purchases()
+st.header("Purchases")
 if not purchases:
-    st.header("Purchases")
     st.info("No purchases yet.")
 else:
-    st.header("Purchases")
     status_labels = {
         "under_process": "Under process",
         "arrived": "Arrived",

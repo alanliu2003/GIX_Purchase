@@ -1,3 +1,6 @@
+# GIX team purchase tracker — Streamlit home page.
+# Students use sidebar pages to submit purchases; coordinator reviews in MySQL-backed UI.
+# I manually changed: service.py error messages.
 import streamlit as st
 
 st.set_page_config(page_title="GIX Purchases", layout="wide")

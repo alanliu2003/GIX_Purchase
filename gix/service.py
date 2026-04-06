@@ -199,7 +199,7 @@ def get_purchase(purchase_id: int) -> dict[str, Any]:
     finally:
         conn.close()
     if not row:
-        raise ValueError("Purchase not found")
+        raise ValueError("No Purchase found")
     return _row_to_api(row)
 
 

@@ -10,6 +10,8 @@ Introduction to AI-powered development workflow. Build your first Streamlit app 
 
 See `lab-manual.md` for full lab instructions.
 
+**Instructors / TAs:** Student-facing deliverables (Components A–E checklist, diagrams, accessibility notes, testing tables, Wayfinder notes, etc.) are consolidated in **[`lab-submission.md`](lab-submission.md)**. Use that file together with this README and `lab-manual.md` when grading.
+
 Ensure your submission is reproducible by following the sections below in this README.
 
 ---
@@ -35,7 +37,8 @@ You get MySQL and both apps in one step. No local MySQL install required.
 
 ### Prerequisites
 
-- [Docker](https://docs.docker.com/get-docker/) with **Docker Compose** (v2 plugin or `docker-compose`).
+- [Docker](https://docs.docker.com/get-docker/) with **Docker Compose** (v2 plugin: use the `docker compose` command, not the old `docker-compose` binary).
+- **Docker daemon running** — e.g. on Windows/Mac, open **Docker Desktop** and wait until it says the engine is running. If you see errors like `failed to connect to the docker API` or `open //./pipe/dockerDesktopLinuxEngine`, the daemon is not started.
 
 ### Steps
 
@@ -49,7 +52,16 @@ You get MySQL and both apps in one step. No local MySQL install required.
 
    This value is **only for the MySQL server inside Docker**. You choose it; it does not need to match any MySQL on your computer.
 
-3. **Start everything:**
+   **Optional — if ports 8000 or 8501 are already in use** (e.g. another Streamlit or API), add two lines with **other** free ports, for example:
+
+   ```env
+   WEB_PORT=18000
+   STREAMLIT_PORT=18501
+   ```
+
+   Then open `http://localhost:18000` and `http://localhost:18501` (or whatever values you chose) in the next step instead of 8000 / 8501.
+
+3. **Start everything** (the `--build` step is required the first time so the `streamlit` service gets the same image as `web`):
 
    ```bash
    docker compose up --build -d
